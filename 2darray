@@ -1,0 +1,83 @@
+//Construct a 2D array and find the max number and show its position in the array.
+
+import java.util.*;
+public class mat
+{
+   static int[][] myFunction(int[][] nums1, int[][] nums2) 
+       int row = nums1.length; 
+       int col = nums2[0].length;
+       int[][] nums3 = new int[row][col]; 
+       for(int i=0; i<row; i++)
+       {
+           for(int j=0; j<col; j++)
+           {
+               if(nums1[i][j] < nums2[i][j]) 
+               {
+                   nums3[i][j] = nums2[i][j];
+               }
+               else 
+               {
+                   nums3[i][j] = nums1[i][j];
+               }
+           }
+       }
+       return nums3; 
+   }
+   static void PrintArray(int[][] nums) 
+   {
+       for(int i=0; i<nums.length; i++)
+       {
+           for(int j=0; j<nums[0].length; j++)
+           {
+               System.out.print(nums[i][j] + " "); 
+           }
+           System.out.println();
+       }
+   }
+   public static void main(String args[])
+   {
+       //prompting and reading array sizes.
+       Scanner sc = new Scanner(System.in);
+       System.out.print("Enter marices row size: ");
+       int row = sc.nextInt();
+       System.out.print("Enter matrices column size: ");
+       int col = sc.nextInt();
+      
+       //declaring two array .
+       int[][] nums1 = new int[row][col];
+       int[][] nums2 = new int[row][col];
+      
+       //reading array 1 values.
+       System.out.println("Reading nums1 array values:");
+       for(int i=0; i<row; i++)
+       {
+           System.out.print("Enter " + (i+1) + " row numbers: ");
+           for(int j=0; j<col; j++)
+           {
+               nums1[i][j] = sc.nextInt();
+           }
+           System.out.println();
+       }
+         
+       //reading array 2 values.
+       System.out.println("Reading nums2 array values:");
+       for(int i=0; i<row; i++)
+       {
+           System.out.print("Enter " + (i+1) + " row numbers: ");
+           for(int j=0; j<col; j++)
+           {
+               nums2[i][j] = sc.nextInt();
+           }
+           System.out.println();
+       }
+      
+       int nums3[][] = myFunction(nums1, nums2); 
+       System.out.println("nums1 = ");
+       PrintArray(nums1);
+     
+       System.out.println("nums2 = ");
+       PrintArray(nums2);
+       System.out.println("Output: ");
+       PrintArray(nums3);
+   }
+}
